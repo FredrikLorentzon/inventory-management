@@ -514,7 +514,7 @@ export default {
 }
 
 .chart-card {
-  margin-bottom: 1.75rem;
+  margin-bottom: var(--space-5);
 }
 
 .chart-legend {
@@ -545,9 +545,9 @@ export default {
 
 .stats-grid-finance {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+  gap: var(--space-5);
+  margin-bottom: var(--space-5);
 }
 
 .revenue-card {
@@ -610,7 +610,8 @@ export default {
 }
 
 .chart-container {
-  padding: 1.5rem 0;
+  padding: var(--space-5) 0;
+  overflow-x: auto;
 }
 
 .bar-chart {
@@ -694,14 +695,18 @@ export default {
 
 .two-column-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-  gap: 1.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(450px, 100%), 1fr));
+  gap: var(--space-5);
+}
+
+.two-column-grid > .card {
+  margin-bottom: 0;
 }
 
 .category-list {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: var(--space-5);
 }
 
 .category-item {
@@ -730,15 +735,15 @@ export default {
 .category-bar-container {
   width: 100%;
   height: 8px;
-  background: #f1f5f9;
-  border-radius: 4px;
+  background: var(--color-surface-muted);
+  border-radius: var(--radius-pill);
   overflow: hidden;
 }
 
 .category-bar {
   height: 100%;
-  background: linear-gradient(90deg, #3b82f6 0%, #2563eb 100%);
-  border-radius: 4px;
+  background: linear-gradient(90deg, var(--color-accent-bright) 0%, var(--color-accent) 100%);
+  border-radius: var(--radius-pill);
   transition: width 0.6s ease;
 }
 
@@ -782,15 +787,15 @@ export default {
 .transactions-table thead {
   position: sticky;
   top: 0;
-  background: #f8fafc;
+  background: var(--color-bg);
   z-index: 1;
 }
 
 .transactions-table th {
   text-align: left;
-  padding: 0.625rem 0.75rem;
+  padding: var(--space-3) var(--space-4);
   font-weight: 600;
-  color: #475569;
+  color: var(--color-text-muted);
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -802,8 +807,8 @@ export default {
 }
 
 .transactions-table td {
-  padding: 0.75rem 0.75rem;
-  border-bottom: 1px solid #f1f5f9;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-surface-muted);
   font-size: 0.875rem;
 }
 
@@ -848,5 +853,17 @@ export default {
 
 .text-right {
   text-align: right;
+}
+
+@media (max-width: 767px) {
+  .bar-chart {
+    gap: var(--space-3);
+    height: 280px;
+  }
+
+  .chart-legend {
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
 }
 </style>
