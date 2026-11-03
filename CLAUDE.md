@@ -69,6 +69,11 @@ npm install && npm run dev
 - Data: `server/data/*.json`
 - Styles: `client/src/App.vue`
 
+## Code Documentation
+Always document non-obvious logic changes:
+- **Python**: in the function docstring, no inline comments
+- **Vue and JS**: with comments next to the logic
+
 ## Design System
 - Colors: Slate/gray (#0f172a, #64748b, #e2e8f0)
 - Status: green/blue/yellow/red
