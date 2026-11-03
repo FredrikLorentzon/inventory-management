@@ -12,7 +12,7 @@
         <button
           type="button"
           class="icon-button sidebar-close"
-          aria-label="Close navigation"
+          :aria-label="t('nav.closeNavigation')"
           @click="closeMobileNav"
         >
           <NavIcon name="close" />
@@ -23,7 +23,7 @@
         ref="navRef"
         class="sidebar-nav"
         :class="{ 'has-indicator': indicator.visible }"
-        aria-label="Main navigation"
+        :aria-label="t('nav.mainNavigation')"
       >
         <span
           class="nav-indicator"
@@ -53,7 +53,7 @@
         </router-link>
         <router-link to="/reports" :class="{ active: $route.path === '/reports' }">
           <NavIcon name="reports" />
-          <span class="nav-label">Reports</span>
+          <span class="nav-label">{{ t('nav.reports') }}</span>
         </router-link>
       </nav>
     </aside>
@@ -73,7 +73,7 @@
           <button
             type="button"
             class="icon-button menu-button"
-            aria-label="Open navigation"
+            :aria-label="t('nav.openNavigation')"
             aria-controls="app-sidebar"
             :aria-expanded="mobileNavOpen ? 'true' : 'false'"
             @click="toggleMobileNav"
@@ -146,7 +146,8 @@ const NAV_LABEL_KEYS = {
   '/inventory': 'nav.inventory',
   '/orders': 'nav.orders',
   '/spending': 'nav.finance',
-  '/demand': 'nav.demandForecast'
+  '/demand': 'nav.demandForecast',
+  '/reports': 'nav.reports'
 }
 
 export default {
@@ -238,7 +239,6 @@ export default {
     const { selectedPeriod, selectedLocation, selectedCategory, selectedStatus } = useFilters()
 
     const currentPageLabel = computed(() => {
-      if (route.path === '/reports') return 'Reports'
       const key = NAV_LABEL_KEYS[route.path]
       return key ? t(key) : ''
     })
